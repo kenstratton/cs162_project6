@@ -18,7 +18,8 @@ RECT_H = 3
 RECT_X = (WINDOW_W-RECT_W*100)/2
 RECT_Y = (WINDOW_H+RECT_H*100)/2
 PIVOT_C = "red"
-CAND_C = "green"
+CAND_C = "#ffffff"
+SWAP_C = "lightgreen"
 
 # Variables for menus (a start button , a jumble button, and a text saying done)
 BTN_W = 5
@@ -170,7 +171,7 @@ class Canvas(tk.Canvas):
         if i:
             self.itemconfig(self.rect_ids[i], fill=color)
         else:
-            self.itemconfig("rect", fill="white")
+            self.itemconfig("rect", fill=CAND_C)
 
     def set_animation(self):
         self.disable("rect")
@@ -190,19 +191,19 @@ class Canvas(tk.Canvas):
         record["l"].pop(0)
         record["r"].pop(0)
         self.change_rect_color()
-        self.change_rect_color(l, CAND_C)
-        self.change_rect_color(r, CAND_C)
+        self.change_rect_color(l, SWAP_C)
+        self.change_rect_color(r, SWAP_C)
         self.change_rect_color(p, PIVOT_C)
         global AFTER_ID
         AFTER_ID = self.root.after(SPEED, self.swap, record, l, r, p)
 
     def swap(self, record, l, r, p):
         if l == p:
-            self.change_rect_color(l, CAND_C)
+            self.change_rect_color(l, SWAP_C)
             self.change_rect_color(r, PIVOT_C)
             p = r
         elif r == p:
-            self.change_rect_color(r, CAND_C)
+            self.change_rect_color(r, SWAP_C)
             self.change_rect_color(l, PIVOT_C)
             p = l
         
