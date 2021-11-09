@@ -10,4 +10,5 @@ from sort import *
 @pytest.fixture(scope="module")
 def app():
     app = Application()
+    jumble_a_collection()
     yield app
