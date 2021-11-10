@@ -18,7 +18,7 @@ Quicksort is a divide-and-conquer algorithm. It works by selecting a 'pivot' ele
     1. If the right side and the left side of the new scale are lost or qual, there is no more progress with the scale. 
     2. Otherwise, go back and execute Step 1 with the scale.
 
-**Performance of Quick Sort :**</br>
+**Performance of My Quick Sort :**</br>
 \* Pivot = 3
 |4|5|3|1|2|
 ----|----|----|----|----
